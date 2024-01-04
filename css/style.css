@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@600;800");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
 
 /* RESET CSS */
 html,
@@ -141,11 +141,19 @@ table {
 
 :root {
   --white: hsl(0, 0%, 100%);
+  --white-off: hsl(0, 0%, 94%);
+  --grey-light: hsl(0, 0%, 86%);
+  --grey-smokey: hsl(0, 1%, 44%);
+  --black: hsl(0, 0%, 8%);
+  --purple: hsl(259, 100%, 65%);
+  --red: hsl(0, 100%, 67%);
+  font-size: 16px;
 }
 
 body {
-  font-family: "Figtree", sans-serif;
-  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: var(--grey-smokey);
   display: flex;
   align-items: center;
   align-content: center;
@@ -153,8 +161,95 @@ body {
   row-gap: 16px;
   width: 100vw;
   height: 100vh;
-  font-size: 18px;
+
+  background: var(--grey-light);
+}
+
+/* CONTAINER */
+.calculator {
+  width: 845px;
   background: var(--white);
+  border-radius: 8px 8px 64px 8px;
+  padding: 60px;
+}
+
+/* FORM DATE */
+.calculator__form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .form__inputs {
+    display: flex;
+    gap: 32px;
+    z-index: 2;
+
+    .form__input {
+      label {
+        display: block;
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+      }
+
+      input {
+        font-family: inherit;
+        font-size: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-weight: 800;
+        width: 160px;
+        border: 1px solid var(--grey-smokey);
+
+        &:focus {
+          outline: 1px solid var(--purple);
+        }
+      }
+      &.error {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--red);
+
+        & > p {
+          font-style: italic;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  .form__button {
+    align-self: flex-end;
+    padding: 16px;
+    background-color: var(--purple);
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+    &:hover {
+      background-color: var(--black);
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    border-bottom: 1px solid var(--grey-light);
+    bottom: 36px;
+  }
+}
+
+.calculator__result {
+  font-size: 5rem;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--black);
+  span {
+    color: var(--purple);
+    margin-right: 8px;
+  }
 }
 
 /* FOOTER LOGO CROLWEB */
@@ -175,4 +270,67 @@ footer {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 750px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: 650px;
+    min-width: 345px;
+    padding: 16px;
+  }
+
+  .calculator__form {
+    .form__inputs {
+      gap: 24px;
+    }
+    input {
+      width: 40px;
+      max-width: 125px;
+    }
+
+    .form__button {
+      align-self: center;
+      margin-top: 16px;
+      padding: 4px;
+      svg {
+        width: 50%;
+      }
+    }
+  }
+
+  .calculator__result {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .calculator {
+    width: 100%;
+    max-width: 345px;
+    padding: 16px;
+  }
+  .calculator__form {
+    .form__inputs {
+      gap: 16px;
+    }
+
+    input {
+      width: 40px;
+      max-width: 90px;
+    }
+
+    .form__button {
+      align-self: center;
+      margin-top: 16px;
+      padding: 4px;
+      svg {
+        width: 50%;
+      }
+    }
+  }
 }
