@@ -178,6 +178,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  gap: 16px;
 
   .form__inputs {
     display: flex;
@@ -200,18 +201,28 @@ body {
         border-radius: 8px;
         font-weight: 800;
         width: 160px;
-        border: 1px solid var(--grey-smokey);
+        border: none;
+        outline: 1px solid var(--grey-smokey);
 
         &:focus {
-          outline: 1px solid var(--purple);
+          outline: 2px solid var(--purple);
         }
       }
+
       &.error {
         font-size: 0.75rem;
         font-weight: 400;
         color: var(--red);
+        position: relative;
 
-        & > p {
+        & > input {
+          outline: 2px solid var(--red);
+        }
+
+        & > span {
+          position: absolute;
+          left: 0px;
+          bottom: -20px;
           font-style: italic;
           margin-top: 4px;
         }
