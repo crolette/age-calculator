@@ -26,14 +26,15 @@
   </head>
   <body>
     <main class="calculator">
-      <form class="calculator__form" action="" novalidate>
+      <form class="calculator__form" id="formDate" action="" novalidate>
         <div class="form__inputs">
-          <div class="form__input error">
+          <div class="form__input">
             <label for="day">DAY</label
             ><input
               type="number"
               name="day"
               id="day"
+              required
               aria-required="true"
               maxlength="4"
               min="1"
@@ -41,11 +42,12 @@
               placeholder="DD"
               novalidate
             />
-            <p class="">Must be in the past</p>
+            <span></span>
           </div>
-          <div class="form__input error">
+          <div class="form__input">
             <label for="month">MONTH</label
             ><input
+              class=""
               type="number"
               name="month"
               id="month"
@@ -57,9 +59,8 @@
               placeholder="MM"
             />
             <span></span>
-            <p class="">Must be in the past</p>
           </div>
-          <div class="form__input error">
+          <div class="form__input">
             <label for="year">YEAR</label
             ><input
               type="number"
@@ -73,7 +74,7 @@
               placeholder="YYYY"
               novalidate
             />
-            <p class="">Must be in the past</p>
+            <span></span>
           </div>
         </div>
         <button class="form__button" type="submit">
