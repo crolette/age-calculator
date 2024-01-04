@@ -25,7 +25,79 @@
     <style></style>
   </head>
   <body>
-    <main></main>
+    <main class="calculator">
+      <form class="calculator__form" action="" novalidate>
+        <div class="form__inputs">
+          <div class="form__input error">
+            <label for="day">DAY</label
+            ><input
+              type="number"
+              name="day"
+              id="day"
+              aria-required="true"
+              maxlength="4"
+              min="1"
+              max="31"
+              placeholder="DD"
+              novalidate
+            />
+            <p class="">Must be in the past</p>
+          </div>
+          <div class="form__input error">
+            <label for="month">MONTH</label
+            ><input
+              type="number"
+              name="month"
+              id="month"
+              required
+              aria-required="true"
+              min="1"
+              max="12"
+              novalidate
+              placeholder="MM"
+            />
+            <span></span>
+            <p class="">Must be in the past</p>
+          </div>
+          <div class="form__input error">
+            <label for="year">YEAR</label
+            ><input
+              type="number"
+              name="year"
+              id="year"
+              required
+              aria-required="true"
+              min="1"
+              max="2024"
+              maxlength="4"
+              placeholder="YYYY"
+              novalidate
+            />
+            <p class="">Must be in the past</p>
+          </div>
+        </div>
+        <button class="form__button" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="46"
+            height="44"
+            viewBox="0 0 46 44"
+          >
+            <g fill="none" stroke="#FFF" stroke-width="2">
+              <path
+                d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+              />
+            </g>
+          </svg>
+        </button>
+      </form>
+
+      <div class="calculator__result">
+        <p><span id="result__years">38</span>years</p>
+        <p><span id="result__months">3</span>months</p>
+        <p><span id="result__days">26</span>days</p>
+      </div>
+    </main>
 
     <footer>
       <a
@@ -43,4 +115,5 @@
       </div>
     </footer>
   </body>
+  <script src="app.js"></script>
 </html>
