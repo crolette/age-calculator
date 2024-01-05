@@ -48,7 +48,7 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- JS
+- Vanilla JS
 
 ### What I learned
 

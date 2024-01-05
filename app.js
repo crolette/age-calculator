@@ -98,6 +98,9 @@ function renderDateDifference(dateDifference) {
   dateDifference = dateDifference - monthDifference * MONTHMS;
   dayDifference = Math.floor(dateDifference / DAYMS);
 
+  //   updateDate(yearDifference, spanYears);
+  // updateDate(monthDifference, spanMonths);
+  //   updateDate(dayDifference, spanDays);
   spanDays.innerText = dayDifference;
   spanMonths.innerText = monthDifference;
   spanYears.innerText = yearDifference;
@@ -109,12 +112,9 @@ function dateValidity() {
   if (months.includes(parseInt(inputMonth.value))) {
     if (inputDay.value == 31) {
       error = 1;
-      console.log("error");
     }
   } else if (inputMonth.value == 2) {
-    console.log(inputYear.value);
     let bisextile = inputYear.value / 4;
-    console.log(bisextile);
     if (bisextile != Math.floor(bisextile) && inputDay.value > 28) {
       error = 1;
     } else if (inputDay.value > 29) {
@@ -127,3 +127,61 @@ function dateValidity() {
     inputDay.nextElementSibling.innerText = "Must be a valid date";
   }
 }
+
+// // Stores the setInterval ID used by
+// // clearInterval to stop the timer
+// var interval;
+
+// let t = 0; // Timer
+
+// // Function that changes the timer
+// function changeTimer() {
+//   // prendre un xème de la différence
+//   if (t < 750) {
+//     t = t * 1.15;
+//   } else {
+//     t = t;
+//   }
+// }
+
+// // Function that run at irregular intervals
+// function f1(indexTime, difference, span) {
+//   // Clears the previous setInterval timer
+//   clearInterval(interval);
+//   console.log("timer " + t);
+//   indexTime++;
+//   console.log(indexTime);
+//   span.innerText = indexTime;
+
+//   changeTimer();
+//   if (indexTime != difference) {
+//     console.log("if");
+//     interval = setInterval(f1, t, indexTime, difference, span);
+//   }
+// }
+
+// // Function that run at irregular intervals
+// function f1(indexTime, difference, span) {
+//   // Clears the previous setInterval timer
+//   clearInterval(interval);
+//   console.log("timer " + t);
+//   indexTime++;
+//   console.log(indexTime);
+//   span.innerText = indexTime;
+
+//   changeTimer();
+//   if (indexTime != difference) {
+//     console.log("if");
+//     interval = setInterval(f1, t, indexTime, difference, span);
+//   }
+// }
+
+// async function updateDate(difference, span) {
+//   let indexTime = 0;
+//   t = 100;
+//   console.log(difference);
+//   //   f1(indexTime, difference, span);
+
+//   const msg = await f1(indexTime, difference, span);
+//   console.log("message +" + msg);
+// }
